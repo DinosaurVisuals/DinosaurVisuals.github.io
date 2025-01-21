@@ -1,0 +1,122 @@
+*{
+    margin:0px;
+    padding:0px;
+    text-decoration: none;
+}
+
+body{
+    display: flex;
+    /* value not need for live website
+    width: 1440px;
+    height: 1024px;
+    */
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+header{
+    display: flex;
+    height: 240px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    align-self: stretch;
+    background: #000;
+    /* Typo format below*/
+    color: #FFF;
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 27px */
+    letter-spacing: -0.342px;
+    text-transform: capitalize;
+}
+
+main{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+footer{
+    display: flex;
+    height: 120px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    align-self: stretch;
+    /* Typo format below*/
+    color: #000;
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.row{
+    display: flex;
+    padding: 90px 24px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 48px;
+    flex: 1 0 0;
+    align-self: stretch;
+    flex-wrap: wrap;
+    background: #FFF;
+}
+
+.subpage{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    background: #9E9E9E;
+    /*over flow hides contain outside the bounds set
+    */
+    overflow: hidden;
+}
+
+.subpage-image{
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    background: #C78080;
+}
+
+.label-container{
+    display:flex;
+    width: 300px;
+    /*height: 50px;*/
+    padding: 24px 40px;
+    /*justify-content: center;*/
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%);
+    position: relative;
+    bottom: 90px;
+}
+
+.subpage-title{
+    color: #FFF;
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+}
