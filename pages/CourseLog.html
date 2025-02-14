@@ -6,48 +6,137 @@
     <title> MSc2006H_Adventure_YWJ</title>
         <!--title means the tage on the browser-->
     <style>
+        .container {
+        padding: 0%;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fff;
+        }
+        .portfolio-btn{
+        background-color: white;
+        border-radius: 5px;
+        border: 2px solid black;
+        padding: 10px 20px;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #000;
+        cursor: pointer;
+        }
         h1 {
             text-align: center;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 30px;
         }
         h2{
+            font-size: 15px;
+            color: #4f4f4f;
             text-align: left;
+            margin-top: 15px;
+            margin-bottom: 0.5px;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
         h3{
             text-align: left;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 1px;
+            font-size: 20px;
+            color: #4f4f4f;
         }
-        p{
+        .content{
             text-align: left;
+            position: center;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
-    </style>
+        footer{
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            display: flex;
+            height: 1px;
+            padding: 30px 0px;
+            justify-content: center;
+            align-items: center;
+            gap: 0px;
+            flex-shrink: 0;
+            align-self: stretch;
+            background: #000;
+            text-align: right;
+            color: #fff;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 15px;
+            font-style: normal;      
+        }
+
+    </style> 
 </head>
 
 <body>
-    <h1> MSC2006: Advanced Media Course Website </h1>
-    <h2 style="text-align: center;"> Welcome to Yu-Wen's 2025 course webpage </h2>
-    <h2> Class Reflection </h2>
-    <h3> Lecture 1: Intro & Web Dev101 </h3>
-    <p>
-
-        The content was clearly explained and well-presented. Before this class, I never understood the distinctions between Python, HTML, CSS, and other programming languages - they were all just coding-related concepts to me. However, after attending the first lecture, I finally gained a clear understanding of their relationships and differences. This has been one of my most valuable coding learning experiences throughout my academic journey.
-    
-    </p>
-
-    <p>
-
-        My only challenge during the class was the pace of instruction, as English is not my first language. Sometimes I needed additional time to process each word. However, I don't consider this a significant issue since I can always review the lecture materials afterward to catch up on any parts I didn't fully grasp during class.
-    
-    </p>
-    
-    <h2>MRP: Move ME_Description</h2>
-    <p>
-        
-        Move ME is an educational project focused on the upper limb's anatomy, specifically the elbow (uniaxial joint), wrist (biaxial joint), and shoulder (triaxial joint), with an emphasis on understanding how joint actions are produced and constrained. It addresses the challenges of teaching musculoskeletal anatomy, which involve comprehending the intricate spatial relationships and dynamic interactions between skeletal and muscular systems. The project aims to develop an interactive module-based website featuring 2D/3D visualizations, self-exploration tools, and static illustrations to enhance spatial comprehension and reduce cognitive load. Designed for third-year kinesiology and medical students, Move ME provides a supportive resource to deepen understanding and facilitate the application of knowledge to complex problem-solving tasks. Additionally, instructors can integrate the visual tools into their teaching, promoting a more engaging and effective learning experience.
-    
-    </p>
+    <div class="container">
+        <header>
+            <h1> Course Log </h1> 
+        </header>
+        <button class="portfolio-btn">
+            <a href="../index.html" style="color: #000"> Home </a>
+        </button>
+        <div>
+            <h2> Jan 07, 2025 </h2>
+            <h3> Lecture 1: Intro & Web Dev101 </h3>
+            <p class="content">
+                The content was clearly explained and well-presented. Before this class, I never understood the distinctions between Python, HTML, CSS, and other programming languages - they were all just coding-related concepts to me. However, after attending the first lecture, I finally gained a clear understanding of their relationships and differences. This has been one of my most valuable coding learning experiences throughout my academic journey.
+            <br>
+                My only challenge during the class was the pace of instruction, as English is not my first language. Sometimes I needed additional time to process each word. However, I don't consider this a significant issue since I can always review the lecture materials afterward to catch up on any parts I didn't fully grasp during class.
+            </p>
+        </div>
+        <div>
+            <h2> Jan 14, 2025 </h2>
+            <h3> Lecture 2: Html and Css </h3>
+            <p class="content">
+            </p>
+        </div>
+        <div>
+            <h2> Jan 21, 2025 </h2>
+            <h3> Lecture 3: Previsualzation for linear media </h3>
+            <p class="content">
+            </p>
+        </div>
+        <div>
+            <h2> Jan 28, 2025 </h2>
+            <h3> Lecture 4: Previsualzation for nonlinear media </h3>
+            <p class="content">
+            </p>
+        </div>
+        <div>
+            <h2> Feb 04, 2025 </h2>
+            <h3> Lecture 4: Scrollytelling </h3>
+            <p class="content">
+            </p>
+        </div>
+        <div>
+            <h2> Feb 11, 2025 </h2>
+            <h3> Lecture 5: JavaScript </h3>
+            <p class="content">
+            </p>
+        </div>
+    </div> 
+    <div class="container">
+        <button class="portfolio-btn">
+            <a href="DecBlog.html" style="color: #000"> DevBlog</a>
+        </button>
+        <button class="portfolio-btn">
+            <a href="GroupProject.html" style="color: #000"> ARchipalago</a>
+        </button>
+        <button class="portfolio-btn">
+            <a href="MRP.html" style="color: #000"> MRP</a>
+        </button>
+        <button class="portfolio-btn">
+            <a href="https://yuwenjan.myportfolio.com" target ="_blank" style="color:#000"> My Portfolio </a>
+        </button>
+    </div>
+    <footer style="align-content: center;">
+        &copy; 2025 Yu-Wen Jan All Right Reserved        .   
+    </footer>
 </body>
 
 </html>
