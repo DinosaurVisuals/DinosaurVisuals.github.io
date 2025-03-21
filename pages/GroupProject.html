@@ -43,8 +43,25 @@
             text-align: left;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             margin: 1px;
-            font-size: 20px;
+            font-size: 25px;
             color: #4f4f4f;
+        }
+        h4{
+            text-align: left;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 1px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+        }
+        h5{
+            text-align: left;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #919191;
         }
         .content{
             text-align: left;
@@ -59,6 +76,17 @@
         }
         .aln{
             justify-items: center;
+        }
+
+        .caption{
+            text-align: left;
+            justify-content: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #919191;
+            font-size: 12px;
+        }
+        .figure{
+        margin-left:0%;
         }
         footer{
             position: fixed;
@@ -222,6 +250,74 @@
                 <img src="../Storyboarding/Frame 13.png"width="100px">
                 <img src="../Storyboarding/Frame 14.png"width="100px">
                 <img src="../Storyboarding/Frame 15.png"width="100px">
+            </p>
+        </div>
+        <div class="gap">
+            <h2> Feb 28, 2025 </h2>
+            <h3> 3D Assets Creation </h3>
+            <p class="content">
+            Today, Naomi and I worked together at UTM with the goal of completing all the 3D assets. We wanted to have everything ready for Jeah, our amazing developer, so they would have more time to explore Unity. I was responsible for creating and animating the boat, coral reef, palm tree, land, and ocean, as well as integrating all the assets into the final scene. Naomi took on the remaining assets, including the bird, bat, fish, and mangroves. All models follow our design style guide, meaning they are low-poly and need to be structured in a way that allows for proper exploration and display within the project.
+            </p>
+            <br>
+            <h4> i) Problem and Solution: </h3>
+            <p class="content">
+                <h5> Problem 01: </h5>
+                The first problem I face is how to effectively indicate that the boat is a fishing boat? I needed a way to clearly communicate that the boat was a fishing vessel without spending too much time on modeling. Using a string was problematic—it could not be too thick, or it would not look like a string, but if it was too thin, it would be hard to see on the final screen. Creating a net was another option, but it would have been too time-consuming.
+                <br>
+                <h5> Solution 01: </h5>
+                Instead of using a string or net, I decided to model a metal chain for the boat. This effectively represents its function while addressing the visibility and modeling concerns.
+            </p>
+            <p class="content">
+                <h5> Problem 02: </h5>
+                I initially tried to create an anchor and metal chain with a hook by extruding shapes from an AI file. However, the extrusion process resulted in weird faces, and when I exported the boat as an OBJ file, the spaces between each chain link and hook closed incorrectly. The anchor also did not function as expected.
+                <br>
+                <h5>Solution 02: </h5>
+                To fix this, I recreated the chain and hook directly in Maya, which resolved the issue. I also decided to exclude the anchor since it was not a key asset. My main takeaway from this challenge is that if a model is not too complex, it's often best to create it entirely in Maya. If I do start from an AI file, I need to minimize the number of points in the shape to avoid extrusion issues.
+            <figure class = "figure">
+                <img src="../image/Feb28/01 In AI.png"width="200px">
+                <img src="../image/Feb28/02 AI & ExMaya.png"width="200px">
+                <img src="../image/Feb28/03 ImMaya.png"width="200px">
+                <figcaption class = "caption"> (F1)_Start in AI (F2)_Extrude in Maya and Export as obj file (F3)_Import obj in Maya again --> (Error: The hole is closed)
+                </figcaption>
+            </figure>
+            </p>
+            <br>
+            <h4> ii) Adjustment and Refinements </h3>
+            <p class="content">
+            I reused a coral reef asset I had previously created for another project. However, the original model included detailed textures and was designed with smooth shading applied in Maya, as it didn't need to be exported. For this project, the coral reef had to be exported as a low-poly model without smooth shading. I revisited the original Maya file and modified the model to meet these requirements. I applied the same polygon reduction process to the palm tree model as well.
+            </p>
+            <p>
+            <img src="../image/Feb28/coral.png"height="200px">
+            <img src="../image/Feb28/palm.png"height="200px">
+            </p>
+            <br>
+            <h4> iii) New things I learned: </h3>
+            <h5> Create polygon in Maya </h5>
+            <p class="content">
+            I usually start modeling from a cube, but for the low-poly rocks, I learned a new technique from an online tutorial. Instead of starting with a cube, I drew a polygon plane and extruded it in Maya. This method is useful for creating irregular shapes, and I'll consider using it in future projects when working with organic or non-standard forms.
+            </p>
+            <a href="https://www.youtube.com/watch?v=8LUTku3AN50&t=278s" style="color: #000"> Link: Low-poly rock tutorial </a>
+            <figure class = "figure">
+                <img src="../image/Feb28/rock.png"height="150px">
+                <img src="../image/Feb28/boat_inital(before error).png"height="150px">
+                <img src="../image/Feb28/boat_final(error fix).png"height="150px">
+                <figcaption class = "caption"> (F1) The rock (F2) Boat: before and (F3) after the error
+                </figcaption>
+            </figure>
+            <figure class="figure">
+                <img src="../image/Feb28/island01.png"height="250px">
+                <figcaption class = "caption"> Full Scene_Bird,mangroves and fish created by Naomi
+                </figcaption>
+            </figure>
+            <h5> Create wave in Maya </h5>
+            <p class="content">
+            </p>
+        </div>
+        <div class="gap">
+            <h2> Mar 05, 2025 </h2>
+            <h3> Texturing 3D Assets </h3>
+            <p class="content">
+            ...
             </p>
         </div>
         <button class="portfolio-btn">
