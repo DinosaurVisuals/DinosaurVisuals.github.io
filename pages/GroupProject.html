@@ -9,7 +9,7 @@
         .container {
         padding: 0%;
         width: 80%;
-        height: 2500px;
+        height: 3000px;
         margin-left: auto;
         margin-right: auto;
         background-color: #fff;
@@ -43,7 +43,7 @@
             text-align: left;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             margin: 1px;
-            font-size: 25px;
+            font-size: 30px;
             color: #4f4f4f;
         }
         h4{
@@ -106,6 +106,14 @@
             font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-size: 15px;
             font-style: normal;      
+        }
+        .image-hover
+        {
+        width: 50%;
+        }
+        .image-hover:hover
+        {
+        width: 200px;
         }
 
     </style> 
@@ -205,10 +213,10 @@
             I prepared the descriptions for the dev walkthrough based on our discussion, while Max created the wireframes and images for the document. Max also designed the main island image for the storyboard, and I continued developing the rest. I challenged myself to draw as quickly as possible to submit a draft for one round of feedback before the deadline. While sketching, I focused on making the images simple and clear so that Naomi and I, as modelers, could efficiently build the necessary 3D assets within our limited timeframe. From the feedback, I learned the importance of incorporating interactive elements into the storyboard and emphasizing user interaction in the visuals. Initially, I approached the storyboard as I would for an animation, focusing more on sequential visuals rather than user engagement. However, after receiving feedback, I realized that including user interactions helps clarify how each visual element fits into the project. This approach not only improves communication within the team but also ensures a smoother development process.
             </p>
             <p class="content">
-                Some storyboarding drafts:
+                <h4> Some storyboarding drafts:</h4>
                 <br>
                 <p class="content">
-                AR view
+                <h5>AR view </h5>
                 </p>
                 <img src="../Storyboarding/M000.png" width="200px">
                 <img src="../Storyboarding/M001.png" width="200px">
@@ -233,7 +241,7 @@
                 <img src="../Storyboarding/W004.png" width="200px">
                 <br>
                 <p class="content">
-                Mini game
+                <h5>Mini game </h5>
                 </p>
                 <img src="../Storyboarding/Frame 2.png"width="100px">
                 <img src="../Storyboarding/Frame 3.png"width="100px">
@@ -296,12 +304,12 @@
             <p class="content">
             I usually start modeling from a cube, but for the low-poly rocks, I learned a new technique from an online tutorial. Instead of starting with a cube, I drew a polygon plane and extruded it in Maya. This method is useful for creating irregular shapes, and I'll consider using it in future projects when working with organic or non-standard forms.
             </p>
-            <a href="https://www.youtube.com/watch?v=8LUTku3AN50&t=278s" style="color: #000"> Link: Low-poly rock tutorial </a>
+            <a href="https://www.youtube.com/watch?v=8LUTku3AN50&t=278s" target ="_blank" style="color: #000"> Link: Low-poly rock tutorial </a>
             <figure class = "figure">
                 <img src="../image/Feb28/rock.png"height="150px">
                 <img src="../image/Feb28/boat_inital(before error).png"height="150px">
                 <img src="../image/Feb28/boat_final(error fix).png"height="150px">
-                <figcaption class = "caption"> (F1) The rock (F2) Boat: before and (F3) after the error
+                <figcaption class = "caption"> (F1) The rock (F2) Initial boat (F3) Final boat
                 </figcaption>
             </figure>
             <figure class="figure">
@@ -311,15 +319,116 @@
             </figure>
             <h5> Create wave in Maya </h5>
             <p class="content">
+            While working on the wave asset, I also explored different ways to animate the waves in Maya. I tested two approaches for generating wave textures and animations:
+            <br>    
+            - Texture deformer: For a regular, repeating wave pattern, Used Deform → Texture → Ocean to create consistent wave motion (F2)
+            <br>
+            - Wave deformer: For a more controllable wave animation, Used Deform → Nonlinear → Wave Deformer to customize the wave behavior (F3)
+            <br>
             </p>
+            <a href="https://www.youtube.com/watch?v=eFvCPiLwKaY" target ="_blank" style="color: #000"> Link: Low-polyWave Tutorial </a>
+            <br>
+            <a href=": https://www.youtube.com/watch?v=t4f6djBtnA0" target ="_blank" style="color: #000"> Link: TextureDeformer Tutorial </a>
+            <Figure class = "figure">
+                <img src="../image/Feb28/Wavedeformer.mov"height="200px">
+                <img src="../image/Feb28/Wave textureOcean.png"height="200px"> 
+                <img src="../image/Feb28/Wave nonlineardeformer.png"height="200px">
+                <figcaption class="caption"> (F1) Apply the both deformers in the scene (F2) TextureDeformer (F3)WaveDeformer 
+                </figcaption>
+            </Figure>
+            
+            <p>
+                In our project, we plan to implement two wave states:
+                <br>
+                - Large, powerful waves when no mangroves are present on the island.
+                <br>
+                - Smaller, more regular waves when mangroves are planted, demonstrating their role in wave reduction.  
+            </p>
+            <img src="../image/Feb28/WaveHit.mov"height="200px">
+            <img src="../image/Feb28/WaveNormal.mov"height="200px"> 
         </div>
         <div class="gap">
             <h2> Mar 05, 2025 </h2>
-            <h3> Texturing 3D Assets </h3>
+            <h3> Texturing 3D assets and revised the model layout </h3>
+            <p class="content">
+            To keep the workflow simple, we decided to use aiStandard textures in Maya. Since the island is designed to represent a tropical environment, the previous scene had too few coral reefs. To enhance the scene, I added more coral reef clusters using MASH, allowing for efficient duplication and distribution.
+            </p>
+            <figure class="figure">
+            <img src="../image/Mar05/Mar05_Color07.jpg"height="105px">
+            <img src="../image/Mar05/Mar05_Color.jpg"height="105px">
+            <img src="../image/Mar05/Mar05_Color06V2.jpg"height="105px">
+            <img src="../image/Mar05/Mar05_Color04.jpg"height="105px">
+            <img src="../image/Mar05/FullTexture_1.png"height="250px">
+            <img src="../image/Mar05/FullScene_YM_1.png"height="250px">
+                <figcaption class="caption"> Full Scene_Bird,mangroves and fish created by Naomi
+                </figcaption>
+            </figure>
+        </div>
+        <div class="gap">
+            <h2> Mar 06, 2025 </h2>
+            <h3> Cleanup and prepare wireframe for developer </h3>
+            <p class="content">
+            Max initially created the wireframe in Figma in early February, but as new ideas emerged over the weeks, the design was never fully settled or confirmed. Additionally, the layer organization in Figma was not well-structured, which would have made it more time-consuming for the developer to extract UI assets.
+            After discussing these issues in our group meeting and considering our time constraints, we decided that Max would finalize the wireframe flow while I took on the task of cleaning up and reorganizing the Figma file no later than this week. 
+            <br>
+            <br>
+            I also replaced the existing UI elements, which did not match the style guide with the assets created by Anaiah earlier in the project to ensure consistency throughout the app. 
+            Additionally, I adjusted the Splash screen color to a more blueish tone, giving it a modern and playful look.
+            <br>
+            <br>
+            This was an unexpected extra task in our plan, and cleaning up the files took more time than I anticipated. I had to locate where each image was placed, understand the hierarchy of layers and parent groups, and deal with multiple assets that had the same naming, making differentiation difficult. The biggest takeaway from this experience is that when working in a team, we should always consider who will be handling the files next. "Being mindful" of file organization from the start can save time for others and make collaboration much more efficient.
+            </p>
+            <img src="../image/Mar06/Splash Screen.png" height="200px">
+            <img src="../image/Mar06/UI Design copy.png"height="200px">
+            <img src="../image/Mar06/Wireframe V2_Yu-Wen - For text edits and png export.png"height="200px">
+        </div>
+        <div class="gap">
+            <h2> Mar 07, 2025 </h2>
+            <h3> Test on 3D printing Model </h3>
+            <p class="content">
+            On Thursday, David introduced us to the 3D printing machine at BMC. The next day, I tested the process using the boat model I created for this project, and it turned out really well! Huge-thanks to David for his help!
+            <h4> Key considerations Before Printing:</h4>
+            - Ensure that no normal faces are reversed.
+            <br>
+            - Make sure each part of the model is mostly attached to the main structure to prevent it from detaching during printing.
+            <br>
+            - Position delicate details, such as the logo on the boat, facing upward in the pre-printing software to avoid support materials attaching to the surface.
+            <br>
+            - Slightly tilt the object to minimize the amount of support material required. 
+            <br>
+            <br>
+            Initially, Naomi planned to create the 3D island model and fact pieces, while I was responsible for the printing process. 
+            However, she wanted to try the 3D printing process herself, so she took on this task instead. 
+            </p>
+            <img src="../image/Mar07/Screenshot 2025-03-21 at 5.39.12 PM.png" height="200px">
+            <img src="../image/Mar07/IMG_0538.jpeg" height="200px">
+            <img src="../image/Mar07/IMG_0534.jpeg" height="200px">
+            <img src="../image/Mar07/IMG_0560.jpeg" height="200px">
+            <img src="../image/Mar07/IMG_0561.jpeg" height="200px">
+        </div>
+        <div class="gap">
+            <h2> Mar 08, 2025 </h2>
+            <h3> Animate 3D assets and export FBX files for developer </h3>
             <p class="content">
             ...
             </p>
         </div>
+        <div class="gap">
+            <h2> Mar 14, 2025 </h2>
+            <h3> Revised the animation </h3>
+            <p class="content">
+            ...
+            </p>
+        </div>
+        <div class="gap">
+            <h2> Mar 19, 2025 </h2>
+            <h3> Wave animation try and error </h3>
+            <p class="content">
+            ...
+            </p>
+        </div>
+
+
         <button class="portfolio-btn">
             <a href="CourseLog.html" style="color: #000"> CourseLog</a>
         </button>
