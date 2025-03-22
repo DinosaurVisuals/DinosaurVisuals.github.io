@@ -349,7 +349,7 @@
         </div>
         <div class="gap">
             <h2> Mar 05, 2025 </h2>
-            <h3> Texturing 3D assets and revised the model layout </h3>
+            <h3> Texturing 3D Assets & Revised the Scene </h3>
             <p class="content">
             To keep the workflow simple, we decided to use aiStandard textures in Maya. Since the island is designed to represent a tropical environment, the previous scene had too few coral reefs. To enhance the scene, I added more coral reef clusters using MASH, allowing for efficient duplication and distribution.
             </p>
@@ -366,7 +366,7 @@
         </div>
         <div class="gap">
             <h2> Mar 06, 2025 </h2>
-            <h3> Cleanup and prepare wireframe for developer </h3>
+            <h3> Cleanup and Prepare Wireframe for Developer </h3>
             <p class="content">
             Max initially created the wireframe in Figma in early February, but as new ideas emerged over the weeks, the design was never fully settled or confirmed. Additionally, the layer organization in Figma was not well-structured, which would have made it more time-consuming for the developer to extract UI assets.
             After discussing these issues in our group meeting and considering our time constraints, we decided that Max would finalize the wireframe flow while I took on the task of cleaning up and reorganizing the Figma file no later than this week. 
@@ -384,7 +384,7 @@
         </div>
         <div class="gap">
             <h2> Mar 07, 2025 </h2>
-            <h3> Test on 3D printing Model </h3>
+            <h3> Test on 3D Printing Model </h3>
             <p class="content">
             On Thursday, David introduced us to the 3D printing machine at BMC. The next day, I tested the process using the boat model I created for this project, and it turned out really well! Huge-thanks to David for his help!
             <h4> Key considerations Before Printing:</h4>
@@ -398,7 +398,7 @@
             <br>
             <br>
             Initially, Naomi planned to create the 3D island model and fact pieces, while I was responsible for the printing process. 
-            However, she wanted to try the 3D printing process herself, so she took on this task instead. 
+            However, she wanted to try the 3D printing process herself, so she took on the  actual 3D-printing model for the project instead.  
             </p>
             <img src="../image/Mar07/Screenshot 2025-03-21 at 5.39.12 PM.png" height="200px">
             <img src="../image/Mar07/IMG_0538.jpeg" height="200px">
@@ -408,23 +408,75 @@
         </div>
         <div class="gap">
             <h2> Mar 08, 2025 </h2>
-            <h3> Animate 3D assets and export FBX files for developer </h3>
+            <h3> Animate 3D assets & Export FBX files for Developer </h3>
             <p class="content">
-            ...
+            The animation process is always the most exciting part for me, but it can also be quite challenging at times. For this project, I animated the boat, fish, and bird using motion paths, constraining them to loop around the island. To animate the planting of young mangroves, I used MASH, allowing each mangrove to appear individually and be planted into the ground.
+            For the wave animation, we decided to create it directly in Unity, as it would be easier for the developer to control both the wave movement and texture changes.
+            This was my first time exporting animated objects using motion paths and deformers, and I initially didnt realize that I needed to bake all the animations before exporting. After looking into it, I followed this tutorial on baking animations for FBX files:
+            </p>
+            <a href="https://www.youtube.com/watch?v=1by3RRNIgdY" target ="_blank" style="color: #000"> Link: Bake animation for FBX files </a>
+            <p>
+            Once I baked the animations and exported them as FBX files, I tested them on Sketchfab before handing them off to the developer. The first issue I encountered was that the textures were not visible on Sketchfab, but fortunately, Jeah confirmed that they appeared correctly in Unity. 
+            The second issue was that the mangrove animation did not function as expected. After researching the issue, I learned that MASH animations need to be converted to an instancer before baking.
+            With these adjustments, the animations are now correctly exported and ready for use in Unity (maybe....).
+            </p>
+            <p> 
+            I followed this tutorial to resolve the issue:
+            <a href="https://www.youtube.com/watch?v=ZwOVgGmtuRI" target ="_blank" style="color: #000"> Link: Bake instancer for FBX files </a>
             </p>
         </div>
         <div class="gap">
             <h2> Mar 14, 2025 </h2>
             <h3> Revised the animation </h3>
             <p class="content">
-            ...
+            In the previous version, the mangrove planting animation still felt unnatural, so I asked Marc for suggestions. Marc demonstrated how to use offset and the visual MASH node in Maya to improve the planting animation, making it look smoother and more natural.
+            
+            <h4> Wave Animation Issue & Solutions </h4>
+            <p>
+            After this week's group meeting, we decided to animate the wave in Maya instead of Unity. The texture of the wave in Unity didn’t match the style of the other assets, and creating a controllable wave in Unity seemed challenging.
+            Based on my exploration from February 28, I created the wave using Wave Deformer and Texture Deformer, then keyframed the frequency. However, I made the mistake of not testing the wave animation on Sketchfab before sending it to Jeah. A few days later, we realized that Wave Deformer and Texture Deformer cannot be baked into an FBX file, causing the animation to break.
+            </p>
+            <h4> Potential Solutions: </h4>
+            <h5> 01 Animate the wave in Unity (back to Jeah's approach)</h5>
+            • Pros: Would avoid the baking issue.
+            <br>
+            • Cons: The wave texture might not match the other assets, and the surface texture could block the coral and fish underneath. Also, animating the wave impact would add extra workload for Jeah.
+            <h5> 02 Manually bend and keyframe each stage of the wave in Maya </h5>
+            • Pros: Ensures consistency in style and visibility of underwater assets.
+            <br>
+            • Cons: Requires patience and time to keyframe each stage smoothly.
+            <br>
+            <br>
+            Decision: Test Solution 2 and see if it produces a smooth and natural wave motion.
             </p>
         </div>
         <div class="gap">
             <h2> Mar 19, 2025 </h2>
             <h3> Wave animation try and error </h3>
             <p class="content">
-            ...
+            Baking Deformation : https://www.youtube.com/watch?v=c42mRMYWNbE
+            <br>
+            <h4>
+            I followed these steps to create and export the wave animation as an FBX file:
+            </h4>
+            <p>
+            - Use deformers to shape and control the wave frequency.
+            - Copy each stage of the wave animation separately.
+            - Blend the stages into a single object.
+            - Keyframe each bending stage.
+            - Bake the bend animation.
+            - Export as an FBX file.
+            </p>
+            <p>
+            To ensure Jeah has enough time to embed the big wave, small wave, and contaminated wave animations in Unity, I aimed to complete them today. To save time, I kept the animation loop short, ensuring the wave shape at the start and end matched a neutral position. This way, the loop would feel more seamless.
+            Finally, I finished the different wave types. They weren’t perfectly smooth, but they were functional and ready to be passed on to Jeah. After a quick test in Unity, the waves seemed to be working fine!
+            </p>
+            <h4>Developer Feedback:</h4>
+            <br>
+            •	Instead of creating four separate wave animations, I could try making one long animation with all variations in a single file, making it easier to control in Unity.
+            <br>
+            •	Next time, I should rename object layers and texture files in Maya to prevent naming conflicts, which can cause issues when reading the files in Unity.
+            
             </p>
         </div>
 
