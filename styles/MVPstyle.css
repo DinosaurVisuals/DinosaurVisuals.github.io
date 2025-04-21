@@ -25,6 +25,7 @@ h4,
 a {
   margin: 0;
   font-weight: 400;
+  height: 100px;
 }
 
 a,
@@ -70,28 +71,29 @@ nav {
 
 #intro {
   width: 100%;
-  height: 1000px;
-  margin: 0rem auto;
+  height: 1500px;
+  margin: 0px;
   justify-content: center;
   text-align: center;
+  scroll-behavior: smooth;
   background-image: url("../MVP_Image/MVP_Q001_S001V11plantsurfaceall.0001.png");
   background-position: center;
-  background-size: cover;
   background-attachment: fixed;
+  background-size: cover;
   display: flex;
-  overflow: hidden
 }
 
 .intro__hed {
   font-size: 50px;
-  margin-top: 300px;
+  margin-top: 150px;
+  height: 60px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   justify-content: center;
   color: aliceblue;
 }
 
 .intro__dek {
-  color: #8a8a8a;
+  color: #dfdfdf;
   font-family: Georgia, 'Times New Roman', Times, serif;
   justify-content: center;
 }
@@ -101,7 +103,15 @@ nav {
 }
 
 #outro {
-  height: 640px;
+  height: 1500px;
+  justify-content: center;
+  text-align: center;
+  scroll-behavior: smooth;
+  background-image: url("../MVP_Image/MVP_Q001_S001V11plantsurfaceall.0001.png");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
 }
 
 @media (min-width: 840px) {
@@ -109,4 +119,34 @@ nav {
     margin-top: 0;
     margin-left: 2rem;
   }
+}
+
+.image {
+  position: absolute;
+  top: 50%;
+  width: 200px;
+  height: auto;
+  transform: translateY(-50%);
+  transition: all 3s ease;
+  opacity: 0;
+}
+
+/* Initial positions */
+.left-img {
+  left: -300px;
+}
+
+.right-img {
+  right: -300px;
+}
+
+/* Animate to center */
+body.loaded .left-img {
+  left: calc(50% - 220px); /* adjust to center */
+  opacity: 1;
+}
+
+body.loaded .right-img {
+  right: calc(50% - 220px);
+  opacity: 1;
 }
