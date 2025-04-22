@@ -97,38 +97,43 @@
         <div class ="row">
           <h1 class="intro__hed"> Type III Secreation System </h1>
           <p class="intro__dek"> Start scrolling to see how it works. </p>
-        </div>
-        <div class="row">
-          <img src="../image/IMG_0238.PNG" alt="Left Image" class="image left-img">
-          <img src="../image/IMG_0238.PNG" alt="Right Image" class="image right-img">
+          <div>
+            <img src="../image/IMG_0238.PNG" alt="Left Image" class="image left-img">
+            <img src="../image/IMG_0238.PNG" alt="Right Image" class="image right-img">
+          </div>
         </div>
       </section>
       <section id="scrolly">
         <div class="sticky-thing">
-          <p>0</p>
+          <!-- <p>0</p> -->
+          <!-- 02 <img id="sticky-image" src="../MVP_Image/TestStoryboard/08.png" alt="Sticky Image"/>-->
+            <div class="image-container">
+              <img id="imgA" class="fade-img show" src="../MVP_Image/TestStoryboard/08.png" alt="" />
+              <img id="imgB" class="fade-img" src="" alt="" />
+          </div>
         </div>
         <article>
-          <div class="step" data-step= img src="../image/IMG_0238.PNG">
+          <div class="step" data-images='["../MVP_Image/TestStoryboard/08.png", "../MVP_Image/TestStoryboard/09.png", "../MVP_Image/TestStoryboard/10.png", "../MVP_Image/TestStoryboard/11.png"]'>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
-          <div class="step" data-step="2">
+          <div class="step" data-images='["../image/IMG_0238.PNG"]'>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
-          <div class="step" data-step="3">
+          <div class="step" data-images='["../image/IMG_0927.jpeg"]'>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
-          <div class="step" data-step="4">
+          <!-- <div class="step" data-step="../image/IMG_0927.jpeg">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
-          <div class="step" data-step="5">
+          <div class="step" data-step="../image/IMG_0238.PNG">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
-          <div class="step" data-step="6">
+          <div class="step" data-step="../image/IMG_0927.jpeg">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
-          <div class="step" data-step="7">
+          <div class="step" data-step="../image/IMG_0238.PNG">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
+          </div> -->
         </article>
 
 
@@ -140,19 +145,117 @@
       </section>
     </main>
 
-    <!-- <div class='debug'></div> -->
+    <!-- <div class='debug'></div> 
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>-->
+
     <script src="https://unpkg.com/scrollama"></script>
     <script>
+      const scroller = scrollama();
+      const steps = document.querySelectorAll(".step");
+    
+      const imgA = document.getElementById("imgA");
+      const imgB = document.getElementById("imgB");
+    
+      let currentImages = [];
+      let currentIndex = 0;
+      let imageTimer = null;
+      let activeImg = imgA;
+    
+      function crossfadeToImage(nextSrc) {
+        const nextImg = activeImg === imgA ? imgB : imgA;
+    
+        const preload = new Image();
+        preload.onload = () => {
+          nextImg.src = nextSrc;
+          nextImg.classList.add("show");
+          activeImg.classList.remove("show");
+          activeImg = nextImg;
+        };
+        preload.src = nextSrc;
+      }
+
+    
+      function playImageSequence() {
+        clearInterval(imageTimer);
+    
+        if (currentImages.length <= 1) {
+          crossfadeToImage(currentImages[0]);
+          return;
+        }
+    
+        currentIndex = 0;
+        crossfadeToImage(currentImages[currentIndex]);
+    
+        imageTimer = setInterval(() => {
+          currentIndex++;
+          if (currentIndex >= currentImages.length) {
+            clearInterval(imageTimer);
+            return;
+          }
+          crossfadeToImage(currentImages[currentIndex]);
+        }, 800); // Adjust speed here
+      }
+    
+      function handleStepEnter(response) {
+        steps.forEach(step => step.classList.remove("is-active"));
+        response.element.classList.add("is-active");
+    
+        // Clear previous images
+        clearInterval(imageTimer);
+        imgA.classList.remove("show");
+        imgB.classList.remove("show");
+        imgA.src = "";
+        imgB.src = "";
+
+        const images = JSON.parse(response.element.dataset.images || "[]");
+        currentImages = images;
+        playImageSequence();
+      }
+    
+      function init() {
+        scroller
+          .setup({
+            step: ".step",
+            offset: 0.33,
+            debug: false,
+          })
+          .onStepEnter(handleStepEnter);
+    
+        window.addEventListener("resize", scroller.resize);
+      }
+    
+      init();
+    </script>
+    <script>
+      window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+      });
+    </script>
+
+   <!-- <script>
       // using d3 for convenience
       var main = document.querySelector("main");
       var scrolly = main.querySelector("#scrolly");
       var sticky = scrolly.querySelector(".sticky-thing");
       var article = scrolly.querySelector("article");
       var steps = article.querySelectorAll(".step");
+      var stickyImage = document.getElementById("sticky-image");
 
       // initialize the scrollama
       var scroller = scrollama();
+
+      let currentImages = [];
+      let currentIndex = 0;
+
+      function showImage(index) {
+        if (!currentImages.length) return;
+        imageEl.style.opacity = 0;
+        setTimeout(() => {
+          imageEl.src = currentImages[index];
+          imageEl.style.opacity = 1;
+        }, 250);
+      }
 
       // scrollama event handlers
       function handleStepEnter(response) {
@@ -164,9 +267,26 @@
         steps.forEach(step => step.classList.remove('is-active'));
         el.classList.add('is-active');
 
+        currentImages = JSON.parse(el.dataset.images || "[]");
+        currentIndex = 0;
+        showImage(currentIndex);
+
         // update graphic based on step
-        sticky.querySelector("p").innerText = el.dataset.step;
+        var newSrc = el.dataset.step;
+        document.getElementById("sticky-image").src = newSrc;
+        //ori:sticky.querySelector("p").innerText = el.dataset.step;
       }
+      window.addEventListener("wheel", (e) => {
+          if (!currentImages.length) return;
+
+          if (e.deltaY > 0 && currentIndex < currentImages.length - 1) {
+            currentIndex++;
+            showImage(currentIndex);
+          } else if (e.deltaY < 0 && currentIndex > 0) {
+            currentIndex--;
+            showImage(currentIndex);
+          }
+        });
 
       function init() {
         scroller
@@ -188,6 +308,7 @@
       window.addEventListener("load", () => {
         document.body.classList.add("loaded");
       });
-    </script>
+    </script> -->
+
   </body>
 </html>
